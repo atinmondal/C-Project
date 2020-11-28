@@ -4,12 +4,6 @@
  */
 
 
-/*
-*****Bus reservation System Using C++*****
- By Atin Mondal
- */
-
-
 #include<bits/stdc++.h>
 
 using namespace std;
