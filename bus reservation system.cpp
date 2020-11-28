@@ -4,13 +4,19 @@
  */
 
 
+/*
+*****Bus reservation System Using C++*****
+ By Atin Mondal
+ */
+
+
 #include<bits/stdc++.h>
 
 using namespace std;
 
 static int p = 0;
 
-class a
+class Bus
 
 {
 
@@ -44,7 +50,7 @@ void vline(char ch)
 
 }
 
-void a::install()
+void Bus::install()
 
 {
 
@@ -60,15 +66,15 @@ void a::install()
 
   cin>>bus[p].arrival;
 
-  cout<<"\nDeparture-> ";
+  cout<<"\nDeparture time-> ";
 
   cin>>bus[p].depart;
 
-  cout<<"\nFrom--> \t\t\t";
+  cout<<"\nFrom--> \t";
 
   cin>>bus[p].from;
 
-  cout<<"\nTo->> \t\t\t";
+  cout<<"\nTo--> \t";
 
   cin>>bus[p].to;
 
@@ -78,7 +84,7 @@ void a::install()
 
 }
 
-void a::allotment()
+void Bus::allotment()
 
 {
 
@@ -86,25 +92,25 @@ void a::allotment()
 
   char number[5];
 
-  top:
+  start:
 
   cout<<"Bus no-->> ";
 
   cin>>number;
 
-  int n;
-
-  for(n=0;n<=p;n++)
+  
+int i;
+  for(i=0;i<=p;i++)
 
   {
 
-    if(strcmp(bus[n].busn, number)==0)
+    if(strcmp(bus[i].busn, number)==0)
 
     break;
 
   }
 
-  while(n<=p)
+  while(i<=p)
 
   {
 
@@ -116,7 +122,7 @@ void a::allotment()
 
     {
 
-      cout<<"\n there are only 32 seats available in this bus.";
+      cout<<"\n there are only 32 seats available in this bus. ";
 
     }
 
@@ -124,13 +130,13 @@ void a::allotment()
 
     {
 
-    if (strcmp(bus[n].seat[seat/4][(seat%4)-1], "Empty")==0)
+    if (strcmp(bus[i].seat[seat/4][(seat%4)-1], "Empty")==0)// seat[1][0]!=0;
 
       {
 
         cout<<"Enter passanger's name-> ";
 
-        cin>>bus[n].seat[seat/4][(seat%4)-1];
+        cin>>bus[i].seat[seat/4][(seat%4)-1];
 
         break;
 
@@ -144,20 +150,20 @@ void a::allotment()
 
       }
 
-    if(n>p)
+    if(i>p)
 
     {
 
       cout<<"Enter correct bus no.\n";
 
-      goto top;
+      goto start;
 
     }
 
   }
 
 
-void a::empty()
+void Bus::empty()
 
 {
 
@@ -177,11 +183,11 @@ void a::empty()
 
 }
 
-void a::show()
+void Bus::show()
 
 {
 
-  int n;
+  int i;
 
   char number[5];
 
@@ -189,51 +195,51 @@ void a::show()
 
   cin>>number;
 
-  for(n=0;n<=p;n++)
+  for(i=0;i<=p;i++)
 
   {
 
-    if(strcmp(bus[n].busn, number)==0)
+    if(strcmp(bus[i].busn, number)==0)
 
     break;
 
   }
 
-while(n<=p)
+while(i<=p)
 
 {
 
   vline('#');
 
-  cout<<"Bus no-- \t"<<bus[n].busn
+  cout<<"\nBus no--> \t"<<bus[i].busn
 
-  <<"\nDriver-- \t"<<bus[n].driver<<"\t\t Arrival time-- \t"
+  <<"\nDriver--> \t"<<bus[i].driver<<"\tArrival time--> \t"
 
-  <<bus[n].arrival<<"\tDeparture time->"<<bus[n].depart
+  <<bus[i].arrival<<"\tDeparture time--> \t"<<bus[i].depart
 
-  <<"\nFrom->>> \t\t"<<bus[n].from<<"\t\t To: \t\t"<<
+  <<"\nFrom: \t"<<bus[i].from<<"\t To: \t"<<
 
-  bus[n].to<<"\n";
+  bus[i].to<<"\n";
 
   vline('#');
 
-  bus[0].position(n);
+  bus[0].position(i);
 
   int a=1;
 
-  for (int i=0; i<8; i++)
+  for (int j=0; j<8; j++)
 
   {
 
-    for(int j=0;j<4;j++)
+    for(int k=0;k<4;k++)
 
     {
 
       a++;
 
-      if(strcmp(bus[n].seat[i][j]," Empty")!=0)
+      if(strcmp(bus[i].seat[j][k]," Empty")!=0)
 
-      cout<<"\nThe seat no "<<(a-1)<<" is reserved for "<<bus[n].seat[i][j]<<".";
+      cout<<"\nThe seat no "<<(a-1)<<" is reserved for "<<bus[i].seat[j][k]<<".";
 
     }
 
@@ -243,13 +249,13 @@ while(n<=p)
 
   }
 
-  if(n>p)
+  if(i>p)
 
     cout<<"Enter correct bus no: ";
 
 }
 
-void a::position(int l)
+void Bus::position(int l)
 
 {
 
@@ -313,7 +319,7 @@ void a::position(int l)
 
   }
 
-void a::avail()
+void Bus::avail()
 
 {
 
@@ -344,7 +350,7 @@ int main()
 {
 
 
-system("cls");
+//system("cls");
 
 int w;
 
@@ -356,17 +362,17 @@ while(1)
 
   cout<<"\n\n\n\n";
 
-  cout<<"\t\t\t1.Install\n\t\t"
+  cout<<"\t1.Install\n\t"
 
-  <<"2.Reservation\n\t\t"
+  <<"2.Reservation\n\t"
 
-  <<"3.Show\n\t\t"
+  <<"3.Show\n\t"
 
-  <<"4.Buses Available. \n\t\t"
+  <<"4.Buses Available. \n\t"
 
   <<"5.Exit";
 
-  cout<<"\n\t\t\tEnter your choice:-> ";
+  cout<<"\n\tEnter your choice:-> ";
 
   cin>>w;
 
