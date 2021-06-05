@@ -24,8 +24,8 @@ using namespace std;
 #define ld long double
 #define pcnt(x) __builtin_popcountll(x)
 
-const char alphanum[] = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int string_len = sizeof(alphanum)-1;
+const char array[] = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int string_len = sizeof(array)-1;
 
 int passwordGenerator(int n)
 {
@@ -39,7 +39,7 @@ int passwordGenerator(int n)
     srand(time(0));
     cout<<"Your password is: ";
     lop(i,n)
-    cout << alphanum[rand() % string_len];
+    cout << array[rand() % string_len];
     }
 }
 int main()
