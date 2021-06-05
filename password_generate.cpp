@@ -26,16 +26,44 @@ using namespace std;
 
 const char alphanum[] = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int string_len = sizeof(alphanum)-1;
-int main()
+
+int pass(int n)
 {
-    ios_base::sync_with_stdio(0);
-        cin.tie(0);cout.tie(0);
-    
-    cout<<"Enter the length of password:"<<endl;
-    int n;cin>>n;
+	if(n<4)
+    {
+        cout<<"Minimum password length is 4";
+        
+    }
+    else
+    {
     srand(time(0));
     cout<<"Your password is: ";
     lop(i,n)
     cout << alphanum[rand() % string_len];
-    return 0;
+    }
+}
+int main()
+{
+// ios_base::sync_with_stdio(0);
+// cin.tie(0);cout.tie(0);
+   
+    int option;
+    while(1)
+    {
+    	cout<<en<<"1: Password Generate";
+    	cout<<en<<"2: Exit"<<en;
+    	cin>>option;
+    	switch(option)
+    	{
+    		case 1:
+    			cout<<"Enter the length of password"<<en;
+    			int n;cin>>n;
+    			pass(n);
+    			break;
+    		case 2: exit(0);
+    			
+		}
+	}
+    
+	
 }
