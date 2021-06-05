@@ -27,7 +27,7 @@ using namespace std;
 const char alphanum[] = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int string_len = sizeof(alphanum)-1;
 
-int pass(int n)
+int passwordGenerator(int n)
 {
 	if(n<4)
     {
@@ -58,7 +58,7 @@ int main()
     		case 1:
     			cout<<"Enter the length of password"<<en;
     			int n;cin>>n;
-    			pass(n);
+    			passwordGenerator(n);
     			break;
     		case 2: exit(0);
     			
